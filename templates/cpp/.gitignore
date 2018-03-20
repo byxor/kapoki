@@ -1,0 +1,6 @@
+# g++ output
+*.o
+*.out
+
+# Build tool output
+*.dblite

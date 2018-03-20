@@ -1,0 +1,33 @@
+from tools.build_utils import *
+
+CPP_VERSION = "-std=c++17"
+CPP_WARNINGS = "-Wall -Wpedantic"
+CPP_FLAGS = " ".join([CPP_VERSION, CPP_WARNINGS])
+
+MAIN_EXECUTABLE = "main.out"
+TEST_EXECUTABLE = "test.out"
+
+SOURCE_DIRECTORY = "src"
+TEST_DIRECTORY = "test"
+
+SOURCE_MAIN = os.path.join(SOURCE_DIRECTORY, "main.cpp")
+TEST_MAIN = os.path.join(TEST_DIRECTORY, "test.cpp")
+
+SOURCE_DIRECTORIES = directories_only(paths_under(SOURCE_DIRECTORY))
+TEST_DIRECTORIES = directories_only(paths_under(TEST_DIRECTORY))
+ALL_DIRECTORIES = SOURCE_DIRECTORIES + TEST_DIRECTORIES
+
+SOURCE_FILES = cpp_only(files_only(paths_under(SOURCE_DIRECTORY)))
+TEST_FILES = cpp_only(files_only(paths_under(TEST_DIRECTORY)))
+ALL_FILES = TEST_FILES + SOURCE_FILES
+ALL_FILES_FOR_TEST = [f for f in ALL_FILES if f != SOURCE_MAIN]
+
+Environment(
+    CXXFLAGS=CPP_FLAGS,
+    CPPPATH=SOURCE_DIRECTORIES
+).Program(MAIN_EXECUTABLE, SOURCE_FILES)
+
+Environment(
+    CXXFLAGS=CPP_FLAGS,
+    CPPPATH=ALL_DIRECTORIES
+).Program(TEST_EXECUTABLE, ALL_FILES_FOR_TEST)
