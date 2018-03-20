@@ -1,10 +1,18 @@
 # kapoki
 
-Quickly generate skeletons for your programming projects
+Quickly generate skeletons for your programming projects.
+
+## 1. Install it
 
 ```bash
-./kapoki ~/projects/cool_thing templates/cpp
-#        <project_name>        <path_to_template>
+make
 ```
 
-Now you'll have a `~/projects/cool_thing/` directory with the template contents inside it.
+## 2. Create a project
+
+```bash
+kapoki ~/projects/web_server ~/.kapoki/cpp
+#      <project_name>        <path_to_template>
+```
+
+Now you'll have a `~/projects/web_server/` directory with a C++ template inside it.
