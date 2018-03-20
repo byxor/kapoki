@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 if (( $# != 2 ))
 then
     local projectPath=$1
