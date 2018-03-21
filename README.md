@@ -9,7 +9,7 @@ Offers support for C++ projects. More to come soon.
 ### 1. Install it
 
 ```bash
-make
+make install
 ```
 
 ### 2. Create a project
