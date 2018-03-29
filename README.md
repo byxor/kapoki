@@ -2,7 +2,7 @@
 
 Quickly generate skeletons for your programming projects.
 
-Offers support for C++ projects. More to come soon.
+Offers support for C++ & Python projects. More to come soon.
 
 ## Usage
 
