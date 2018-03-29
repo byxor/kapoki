@@ -1,0 +1,3 @@
+KAPOKI_SETUP.sh
+*.pyc
+venv/
