@@ -2,7 +2,7 @@
 
 Quickly generate skeletons for your programming projects.
 
-Offers support for C++ & Python projects. More to come soon.
+Offers support for **C++** & **Python** projects. More to come soon.
 
 ## Usage
 
@@ -21,6 +21,8 @@ kapoki ~/projects/web_server ~/.kapoki/cpp
 ```
 
 Now you'll have a `~/projects/web_server/` directory with a C++ template inside it.
+
+If new templates become available, you'll need to update your copy of the repository and re-run the installation instructions before you can use said templates.
 
 ## List of Templates
 
