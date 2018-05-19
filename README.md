@@ -24,7 +24,11 @@ Now you'll have a `~/projects/web_server/` directory with a C++ template inside 
 
 ### 3. Keep the tool updated
 
-If new templates become available, you'll need to update your copy of the repository (`git pull`) and re-run the installation instructions before you can use said templates.
+If new templates or updates become available, you can obtain them by running
+
+```bash
+kapoki update
+```
 
 ## List of Templates
 
