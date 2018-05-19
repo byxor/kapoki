@@ -1,11 +1,29 @@
 #!/bin/bash
 
-if [ "$#" -eq 2 ]
+function create_skeleton {
+    if [ "$#" -eq 2 ]
+    then
+        projectPath=$1
+        templatePath=$2
+        mkdir -p $projectPath
+        cp -r $templatePath/. $projectPath
+    else
+        echo "Please provide the following command-line arguments: <project_path> <path_to_template>"
+    fi
+}
+
+function update {
+    echo "Updating Kapoki..."
+    rm -rf /tmp/kapoki
+    cd /tmp/
+    git clone http://www.github.com/byxor/kapoki
+    cd kapoki
+    make install
+}
+
+if [ "$1" = "update" ]
 then
-    projectPath=$1
-    templatePath=$2
-    mkdir -p $projectPath
-    cp -r $templatePath/. $projectPath
+    update $@
 else
-    echo "Please provide the following command-line arguments: <project_path> <path_to_template>"
+    create_skeleton $@
 fi
