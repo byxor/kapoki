@@ -8,14 +8,17 @@ function create_skeleton {
         mkdir -p $projectPath
         cp -r $templatePath/. $projectPath
         cd $projectPath
-        
-        local setupScript=".kapoki/init.sh"
-        if [ -f . $setupScript ]
-        then
-            source $setupScript
-        fi
+        _run_setup_script 
     else
         echo "Please provide the following command-line arguments: <project_path> <path_to_template>"
+    fi
+}
+
+function _run_setup_script {
+    local setupScript=".kapoki/init.sh"
+    if [ -f . $setupScript ]
+    then
+        source $setupScript
     fi
 }
 
