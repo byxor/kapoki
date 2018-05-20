@@ -1,7 +1,7 @@
 #/usr/bin/env bash
 
 _completions() {
-    COMPREPLY+=("update")
+    COMPREPLY=("update")
 }
 
 complete -F _completions kapoki
