@@ -4,7 +4,7 @@ projectName=$(basename $(pwd))
 echo "Renaming some files/folders..."
 mv src $projectName
 mv main.py ${projectName}.py
-mv gitignore .gitignore
+mv GITIGNORE .gitignore
 
 git init
 
