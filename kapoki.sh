@@ -16,7 +16,7 @@ function create_skeleton {
 
 function _run_setup_script {
     local setupScript=".kapoki/init.sh"
-    if [ -f . $setupScript ]
+    if [ -f $setupScript ]
     then
         source $setupScript
     fi
