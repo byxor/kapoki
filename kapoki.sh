@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function create_skeleton {
+function createSkeleton {
     if [ "$#" -eq 2 ]
     then
         local projectPath=$1
@@ -8,13 +8,13 @@ function create_skeleton {
         mkdir -p $projectPath
         cp -r $templatePath/. $projectPath
         cd $projectPath
-        _run_setup_script 
+        _runSetupScript
     else
         echo "Please provide the following command-line arguments: <project_path> <path_to_template>"
     fi
 }
 
-function _run_setup_script {
+function _runSetupScript {
     local setupScript=".kapoki/init.sh"
     if [ -f $setupScript ]
     then
@@ -31,9 +31,18 @@ function update {
     make install
 }
 
+function listTemplates {
+    local templatePath="~/.kapoki"
+    echo "Available templates in $templatePath:"
+    ls -1 ~/.kapoki
+}
+
 if [ "$1" = "update" ]
 then
     update $@
+elif [ "$1" = "list" ]
+then
+    listTemplates $@
 else
-    create_skeleton $@
+    createSkeleton $@
 fi
