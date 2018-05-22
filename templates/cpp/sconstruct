@@ -22,12 +22,14 @@ TEST_FILES = cpp_only(files_only(paths_under(TEST_DIRECTORY)))
 ALL_FILES = TEST_FILES + SOURCE_FILES
 ALL_FILES_FOR_TEST = [f for f in ALL_FILES if f != SOURCE_MAIN]
 
+Environment.with_colour = with_colour
+
 Environment(
     CXXFLAGS=CPP_FLAGS,
     CPPPATH=SOURCE_DIRECTORIES
-).Program(MAIN_EXECUTABLE, SOURCE_FILES)
+).with_colour().Program(MAIN_EXECUTABLE, SOURCE_FILES)
 
 Environment(
     CXXFLAGS=CPP_FLAGS,
     CPPPATH=ALL_DIRECTORIES
-).Program(TEST_EXECUTABLE, ALL_FILES_FOR_TEST)
+).with_colour().Program(TEST_EXECUTABLE, ALL_FILES_FOR_TEST)

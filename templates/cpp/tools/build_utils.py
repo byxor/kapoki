@@ -2,6 +2,11 @@ import os
 import os.path
 import functools
 
+# Environment.with_colour
+def with_colour(self):
+    self['ENV']['TERM'] = os.environ['TERM']
+    return self
+
 def paths_under(directory):
     for root, directories, files in os.walk(directory):
         for filename in directories + files:
