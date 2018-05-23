@@ -3,18 +3,19 @@
 function createSkeleton {
     if [ "$#" -eq 2 ]
     then
-        local projectPath=$1
-        local templatePath=$2
+        local projectPath="$1"
+        local templatePath="$2"
         mkdir -p $projectPath
         cp -r $templatePath/. $projectPath
-        cd $projectPath
-        _runSetupScript
+        _runSetupScript $projectPath
     else
         echo "Please provide the following command-line arguments: <project_path> <path_to_template>"
     fi
 }
 
 function _runSetupScript {
+    local projectPath="$1"
+    cd $projectPath
     local setupScript=".kapoki/init.sh"
     if [ -f $setupScript ]
     then
