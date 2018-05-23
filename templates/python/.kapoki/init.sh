@@ -32,7 +32,7 @@ step "Creating a virtual environment..."
 virtualenv venv -p python3.6
 
 step "Installing dependencies..."
-source venv/bin/activate
+source $projectPath/venv/bin/activate
 pip install -r requirements.txt --upgrade
 deactivate
 
