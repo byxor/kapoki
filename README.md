@@ -32,8 +32,8 @@ kapoki update
 
 ## List of Templates
 
-After installing kapoki, the following templates will be available in the `~/.kapoki` directory.
+After installing kapoki, your templates will be available in the `~/.kapoki` directory.
 
-`ls -1 ~/.kapoki` will show you all the available templates.
+`kapoki list` will show you all the available templates.
 
 Want to add a template? Sure! The more the merrier.
