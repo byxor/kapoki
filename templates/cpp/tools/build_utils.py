@@ -2,9 +2,12 @@ import os
 import os.path
 import functools
 
-# Environment.with_colour
+# Environment static method:
 def with_colour(self):
-    self['ENV']['TERM'] = os.environ['TERM']
+    try:
+        self['ENV']['TERM'] = os.environ['TERM']
+    except:
+        pass
     return self
 
 def paths_under(directory):
