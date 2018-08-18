@@ -13,9 +13,11 @@ TEST_DIRECTORY = "test"
 SOURCE_MAIN = os.path.join(SOURCE_DIRECTORY, "main.cpp")
 TEST_MAIN = os.path.join(TEST_DIRECTORY, "test.cpp")
 
-SOURCE_DIRECTORIES = directories_only(paths_under(SOURCE_DIRECTORY))
-TEST_DIRECTORIES = directories_only(paths_under(TEST_DIRECTORY))
-ALL_DIRECTORIES = SOURCE_DIRECTORIES + TEST_DIRECTORIES
+INCLUDE_DIRECTORIES = ['include']
+
+SOURCE_DIRECTORIES = directories_only(paths_under(SOURCE_DIRECTORY)) + INCLUDE_DIRECTORIES
+TEST_DIRECTORIES = directories_only(paths_under(TEST_DIRECTORY)) + INCLUDE_DIRECTORIES
+ALL_DIRECTORIES = list(set(SOURCE_DIRECTORIES + TEST_DIRECTORIES))
 
 SOURCE_FILES = cpp_only(files_only(paths_under(SOURCE_DIRECTORY)))
 TEST_FILES = cpp_only(files_only(paths_under(TEST_DIRECTORY)))
